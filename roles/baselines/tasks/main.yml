@@ -1,0 +1,8 @@
+---
+# main tasks
+- import_tasks: installation-program.yml
+- import_tasks: generate-key-pair.yml
+#- import_tasks: create-var-partition.yml
+- import_tasks: install-config.yml
+- import_tasks: k8-manifest-and-ignition.yml
+

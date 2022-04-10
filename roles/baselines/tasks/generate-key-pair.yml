@@ -1,0 +1,10 @@
+---
+# main tasks
+- name: generate cluster ssh key pair
+  openssh_keypair:
+    path: "{{ openshift_build_dir }}/{{ openshift_cluster_name }}-key"
+    size: 4096
+    type: rsa
+
+
+

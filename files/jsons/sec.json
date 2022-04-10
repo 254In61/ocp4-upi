@@ -1,0 +1,1 @@
+[{"ParameterKey": "InfrastructureName", "ParameterValue": "ocp4-apse2-07-n7rk5"}, {"ParameterKey": "VpcCidr", "ParameterValue": "10.7.0.0/16"}, {"ParameterKey": "PrivateSubnets", "ParameterValue": "subnet-0cb95f9873179d844,subnet-054b3a5ac3f1a16e1,subnet-06d1bb227a7be7367"}, {"ParameterKey": "VpcId", "ParameterValue": "vpc-044e3e08cfb9279f8"}]

@@ -1,0 +1,20 @@
+---
+- name: Read {{ pull_secret_file }} file contents
+  shell: "cat {{ pull_secret_file }}"
+  register: output
+
+# Needed step. install-config.yaml must have this value as a string.
+- name: Convert pull_secret value to string.
+  set_fact:
+    openshift_pull_secret: "'{{ output['stdout'] }}'"
+
+- name: create openshift install-config.yaml file
+  template:
+    src: "install-config.yaml.j2"
+    dest: "{{ openshift_build_dir }}/install-config.yaml"
+
+# install-config.yaml file is destroyed once cluster build is complete. It's a good idea to have a backup.
+# You will need this to install multiple clusters
+- name: Backup install-config.yaml file
+  shell: "cp {{ openshift_build_dir }}/install-config.yaml {{ openshift_build_dir }}/install-config.yaml.backup"
+    

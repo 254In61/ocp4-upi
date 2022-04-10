@@ -1,0 +1,22 @@
+---
+# Sample code to do AWS Stuff
+# https://medium.datadriveninvestor.com/devops-using-ansible-to-provision-aws-ec2-instances-3d70a1cb155f
+
+- name: OCP4 INSTALLATION
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - include_vars:
+        dir: group_vars
+      
+    - import_role:
+        name: baselines
+
+      
+
+
+
+    
+    

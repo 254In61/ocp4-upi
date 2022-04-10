@@ -1,0 +1,21 @@
+---
+# Variables for OpenShift Container Platform deployments
+
+# VARIABLES YOU CAN EDIT
+
+openshift_cluster_name: ocp4-apse2-07 # Cluster name
+aws_region: ap-southeast-2 
+openshift_cluster_base_domain: example.com
+openshift_control_node_instance_type: m5a.xlarge  # default = 4vCPUs / 16 GB RAM (i.e. m5a.xlarge)
+openshift_control_node_replicas: 2
+openshift_worker_node_instance_type: m5a.2xlarge	 # default = 8 vCPUs / 32 GB RAM (i.e. m5a.2xlarge)
+openshift_worker_node_replicas: 2
+openshift_version: 4.10.6
+openshift_installation_file_name: openshift-install-linux.tar.gz
+openshift_cli_file_name: oc-4.10.6-linux.tar.gz
+openshift_installer_log_level: info
+
+# VPC Varibles
+VpcCidr: 10.0.0.0/16
+AvailabilityZoneCount: 1
+SubnetBits: 12

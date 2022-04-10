@@ -1,0 +1,9 @@
+---
+# DO NOT EDIT
+openshift_build_dir: "{{ openshift_cluster_name }}"  
+openshift_installation_file_source: "{{ lookup('env', 'HOME') }}/Downloads/{{ openshift_installation_file_name }}"
+openshift_cli_file_source: "{{ lookup('env', 'HOME') }}/Downloads/{{ openshift_cli_file_name }}"
+openshift_working_dir: "{{ lookup('env', 'PWD') }}"
+openshift_artifact_download_path: "{{ openshift_working_dir }}/files"
+openshift_node_ssh_public_key: "{{ lookup('file', '{{ openshift_build_dir}}/{{ openshift_cluster_name }}-key.pub') }}"
+pull_secret_file: "{{ lookup('env', 'HOME') }}/Downloads/pull-secret.txt"

@@ -1,0 +1,1 @@
+[{"ParameterKey": "VpcCidr", "ParameterValue": "10.7.0.0/16"}, {"ParameterKey": "AvailabilityZoneCount", "ParameterValue": "3"}, {"ParameterKey": "SubnetBits", "ParameterValue": "12"}]

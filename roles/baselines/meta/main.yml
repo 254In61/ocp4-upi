@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Allan Maseghe
+  description: Snr Ansible & Devops Consultant
+  company: Leonardo Consulting
+  license: license (GPL-2.0-or-later, MIT, etc)
+
+  min_ansible_version: 2.9
+
+  galaxy_tags:
+    - ocp4
+    - aws
+
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+dependencies: []

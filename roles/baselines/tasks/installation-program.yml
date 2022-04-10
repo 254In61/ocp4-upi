@@ -1,0 +1,35 @@
+---
+# main tasks
+- name: Create a directory to hold the OpenShift Container Platform installation files
+  file:
+    path: "{{ openshift_build_dir }}"
+    state: directory
+
+- name: Check if openshift installer bin file is present in the $PATH
+  command: which openshift-install
+  register: bin_check
+  ignore_errors: yes
+
+# - debug:
+#     var: bin_check
+
+- assert:
+    that: "'no openshift-install in' not in bin_check['stderr']"
+    fail_msg: "FAIL : Check if openshift installer bin file is present in the $PATH"
+    success_msg: "PASS: Check if openshift installer bin file is present in the $PATH"
+
+- name: Check that the installer runs correctly
+  shell: "openshift-install version"
+  register: ver_output
+  
+- debug:
+    var: ver_output["stdout_lines"]
+
+- assert:
+    that: 
+      - ver_output["failed"] == false
+      - '"openshift-install 4." in ver_output["stdout"]'
+    fail_msg: "FAIL : Check that the installer runs correctly"
+    success_msg: "PASS: Check that the installer runs correctly"
+
+
