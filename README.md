@@ -1,9 +1,9 @@
 SUMMARY
-========
+--------
 - Code helps in automating the building of OCP4 cluster through User Provisioned Infrastructure (UPI)
 
 UPI INSTALLATION SUMMARY STEPS
-==============================
+------------------------------
     1) configure an AWS account.
     2) Add your AWS keys and region to your local AWS profile by running aws configure.
     3) Generate the Ignition config files for your cluster.
@@ -28,29 +28,14 @@ UPI INSTALLATION SUMMARY STEPS
 
 
 SCRIPTS
-=========
-1) set_baselines.yml: Ansible playbook. 
-                      Script performs following tasks:
-                      - obtaining the installation program
-                      - Generating a key pair for cluster node SSH access.
-                      - Creating the installation files for AWS:
-                          a) Creating a separate /var partition
-                          b) Creating the installation configuration files
-                          c) Configuring the cluster-wide proxy during installation.
-                          d) Creating the Kubernetes manifest and Ignition config files.
+---------
+1) set_baselines.yml: Ansible playbook. Sets the baselines for ocp4 installation.
 
-2) create_stacks.py: Python script.
-                     Script performs following tasks:
-                     - Creating VPC in AWS
-                     - Creating Networking and Load Balancing components in AWS.
-                     - Creating Security Group and Roles in AWS
-                     - Creating the bootstrap node in AWS
-                     - Create the control plane machines in AWS
-                     - Creating the worker nodes in AWS
+2) create_stacks.py: Python script which creates the stacks needed for ocp4 setup.
 
 
 HOW TO USE
-===========
+------------
 
 Prerequisites
 ---------------
@@ -93,35 +78,8 @@ STEP 4) Set the environment variable for KUBEADMIN & test the login + health of 
        $ oc get nodes
 
 
-LOGGIN IN TO THE CLUSTER USING WEB CONSOLE
-==========================================
-
-The web console runs as a pod on the master. The static assets required to run the web console are served by the pod. 
-After OpenShift Container Platform is successfully installed using openshift-install create cluster, find the URL for 
-the web console and login credentials for your installed cluster in the CLI output of the installation program. For example:
-
-** URL can be found in:
-1) INFO messages towards the end of installation i.e 
-        !
-        !
-        INFO Access the OpenShift web-console here: https://console-openshift-console.apps.demo1.lab-aws.ldcloud.com.au
-        !
-
-2) oc get routes -n openshift-console .. Just add https:// to the console-openshift ***** 
-    user: "kubeadmin"
-
-    ** Password can also be found in : 
-    1) $BUILDPATH/auth/kubeadmin-password file.
-    2) $BUILDPATH/.openshift_install.log log file on the installation host.
-     
-
-AUTHOR
-======    
-
-Name : A.M
-
 REFERENCES
-===========
+------------
 
 https://docs.openshift.com/container-platform/4.10/installing/installing_aws/installing-aws-user-infra.html#installation-generate-aws-user-infra-install-config_installing-aws-user-infra
 
