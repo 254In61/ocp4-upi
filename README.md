@@ -56,15 +56,19 @@ Implementation Steps
 --------------------
 
 STEP 1) Run the ansible-script , set_baselines.yml
+
         $ansible-playbook set_baselines.yml -e "@../../ansible/common/creds.yml"
 
 STEP 2) Run the python-script, create_stacks.py
+
        $python3 create_stacks.py
 
 STEP 3) Initializing the bootstrap sequence on AWS 
+
        $ openshift-install wait-for bootstrap-complete --dir <installation_directory> --log-level=info 
 
 STEP 4) Set the environment variable for KUBEADMIN & test the login + health of cluster using 'oc'
+
        $ export KUBECONFIG=< the install directory name>/auth/kubeconfig
 
     *** Cannot be set/reset in the same shell session as the script is running.
@@ -72,9 +76,13 @@ STEP 4) Set the environment variable for KUBEADMIN & test the login + health of 
 
     Example:
        $ export KUBECONFIG=<installation_directory>/auth/kubeconfig
+       
        $ echo $KUBECONFIG 
+       
          ocp4-apse2-07/auth/kubeconfig
+         
        $ oc get clusterversion
+       
        $ oc get nodes
 
 
